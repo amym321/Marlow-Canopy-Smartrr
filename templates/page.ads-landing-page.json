@@ -292,58 +292,146 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Web_Preview.png",
             "mobile_image": "shopify:\/\/shop_images\/Web_Preview.png",
-            "desktop_image_position": "center center",
-            "mobile_image_position": "center center",
+            "desktop_image_position": "center bottom",
+            "mobile_image_position": "right bottom",
             "subheading": "",
             "title": "Our Standards",
             "title_size": 40,
             "heading_h1": false,
-            "text": "<p>Pair text with an image to tell a story<\/p>",
-            "enlarge_text": true,
-            "button_1_link": "",
-            "button_1_label": "",
+            "text": "<p>At Marlow, we're designing <br\/>our products with you and <br\/>the planet in mind.<\/p>",
+            "enlarge_text": false,
+            "button_1_link": "shopify:\/\/pages\/our-standards",
+            "button_1_label": "Learn More",
             "button_1_style": "primary",
             "button_2_link": "",
             "button_2_label": "",
             "button_2_style": "primary",
-            "text_alignment": "center center",
+            "text_alignment": "top right",
             "mobile_text_alignment": "top right"
-          }
-        },
-        "164253406235d15231-1": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_image_position": "center center",
-            "mobile_image_position": "center center",
-            "subheading": "Subheading",
-            "title": "Tell your story",
-            "title_size": 40,
-            "heading_h1": false,
-            "text": "<p>Pair text with an image to tell a story<\/p>",
-            "enlarge_text": true,
-            "button_1_link": "",
-            "button_1_label": "",
-            "button_1_style": "primary",
-            "button_2_link": "",
-            "button_2_label": "",
-            "button_2_style": "primary",
-            "text_alignment": "center center",
-            "mobile_text_alignment": "center center"
           }
         }
       },
       "block_order": [
-        "164253406235d15231-0",
-        "164253406235d15231-1"
+        "164253406235d15231-0"
       ],
       "settings": {
         "height": "fixed",
         "height_desktop": 600,
-        "height_mobile": 500,
-        "full_width": false,
+        "height_mobile": 280,
+        "full_width": true,
         "mobile_overlay_under": false,
-        "image_overlay_style": "top",
+        "image_overlay_style": "shadow",
+        "slide_transition": "slide",
+        "slide_navigation": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7
+      }
+    },
+    "16425344060a9d867a": {
+      "type": "featured-product",
+      "blocks": {
+        "1642534406d65ffd8c-0": {
+          "type": "vendor_and_type",
+          "disabled": true,
+          "settings": {
+            "prod_show_brand": true,
+            "prod_show_type": true
+          }
+        },
+        "1642534406d65ffd8c-1": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "1642534406d65ffd8c-2": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false
+          }
+        },
+        "1642534406d65ffd8c-3": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "c7d29a57-d342-40cc-8d63-b31bd49db75d": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ section.settings.product.metafields.descriptors.care_guide | metafield_tag }}<\/p>"
+          }
+        },
+        "1642534406d65ffd8c-4": {
+          "type": "variant_picker",
+          "settings": {
+            "prod_clicky_opt_names": "",
+            "stock_warning_show": false,
+            "stock_warning_limit": 5
+          }
+        },
+        "1642534406d65ffd8c-5": {
+          "type": "buy_buttons",
+          "settings": {
+            "enable_payment_button": false,
+            "show_pickup_availability": true,
+            "show_backorder_text": true
+          }
+        }
+      },
+      "block_order": [
+        "1642534406d65ffd8c-0",
+        "1642534406d65ffd8c-1",
+        "1642534406d65ffd8c-2",
+        "1642534406d65ffd8c-3",
+        "c7d29a57-d342-40cc-8d63-b31bd49db75d",
+        "1642534406d65ffd8c-4",
+        "1642534406d65ffd8c-5"
+      ],
+      "settings": {
+        "product": "bundle-save",
+        "page_width": "medium",
+        "prod_show_thumbnails": true,
+        "enable_video_looping": true,
+        "enable_product_image_zoom": true
+      }
+    },
+    "1642534546fe2b70cf": {
+      "type": "slideshow",
+      "blocks": {
+        "1642534545d3937d5f-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/09A9179.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/09A9943.jpg",
+            "desktop_image_position": "right center",
+            "mobile_image_position": "right bottom",
+            "subheading": "",
+            "title": "Our Story",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "<p>As menstruators ourselves, <br\/>we know how ridiculous it is <br\/>that menstruation is steeped <br\/>in whispers and misinformation. <br\/>We're here to change that.<\/p>",
+            "enlarge_text": false,
+            "button_1_link": "shopify:\/\/pages\/our-story",
+            "button_1_label": "Learn More",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "top left",
+            "mobile_text_alignment": "top right"
+          }
+        }
+      },
+      "block_order": [
+        "1642534545d3937d5f-0"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 720,
+        "height_mobile": 740,
+        "full_width": true,
+        "mobile_overlay_under": false,
+        "image_overlay_style": "shadow",
         "slide_transition": "slide",
         "slide_navigation": "arrows",
         "autoplay": true,
@@ -360,6 +448,8 @@
     "1642532134cf86578e",
     "1642533152f2b644e1",
     "1642533184555c117c",
-    "164253406223e076ea"
+    "164253406223e076ea",
+    "16425344060a9d867a",
+    "1642534546fe2b70cf"
   ]
 }
