@@ -273,13 +273,79 @@
       ],
       "settings": {
         "height": "fixed",
-        "height_desktop": 380,
+        "height_desktop": 420,
         "height_mobile": 440,
         "full_width": false,
         "mobile_overlay_under": false,
         "image_overlay_style": "none",
         "slide_transition": "slide",
         "slide_navigation": "dots",
+        "autoplay": true,
+        "autoplay_speed": 7
+      }
+    },
+    "164253406223e076ea": {
+      "type": "slideshow",
+      "blocks": {
+        "164253406235d15231-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Web_Preview.png",
+            "mobile_image": "shopify:\/\/shop_images\/Web_Preview.png",
+            "desktop_image_position": "center center",
+            "mobile_image_position": "center center",
+            "subheading": "",
+            "title": "Our Standards",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "<p>Pair text with an image to tell a story<\/p>",
+            "enlarge_text": true,
+            "button_1_link": "",
+            "button_1_label": "",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "center center",
+            "mobile_text_alignment": "top right"
+          }
+        },
+        "164253406235d15231-1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "desktop_image_position": "center center",
+            "mobile_image_position": "center center",
+            "subheading": "Subheading",
+            "title": "Tell your story",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "<p>Pair text with an image to tell a story<\/p>",
+            "enlarge_text": true,
+            "button_1_link": "",
+            "button_1_label": "",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "center center",
+            "mobile_text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "164253406235d15231-0",
+        "164253406235d15231-1"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 600,
+        "height_mobile": 500,
+        "full_width": false,
+        "mobile_overlay_under": false,
+        "image_overlay_style": "top",
+        "slide_transition": "slide",
+        "slide_navigation": "arrows",
         "autoplay": true,
         "autoplay_speed": 7
       }
@@ -293,6 +359,7 @@
     "164253195616c8c8fd",
     "1642532134cf86578e",
     "1642533152f2b644e1",
-    "1642533184555c117c"
+    "1642533184555c117c",
+    "164253406223e076ea"
   ]
 }
