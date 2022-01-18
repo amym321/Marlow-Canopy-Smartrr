@@ -57,7 +57,7 @@
   <div data-smartrr-selling-plan-groups>
     {% unless product.requires_selling_plan %}
     <div data-smartrr-selling-plan-group-id class="smartrr-otp">
-      <div class="smartrr-selling-plan-group-header hide">
+      <div class="smartrr-selling-plan-group-header">
         <label class="smartrr-selling-plan-group-label">
           <input type="radio" data-smartrr-selling-plan-group-input name="purchase_option" value="">
           <div class="smartrr-selling-plan-group-input-display"></div>
@@ -152,17 +152,19 @@
       /* Handle the variant selector on the page here. */
       /* Get the variant selector/buttons. On change/click, get the variant id and call ui.logic.apiChangeVariant(variantId); */
       /* Example code shows how to handle a swatch */
-      /*
+      
       var grpSelectInput = ui.$form.querySelectorAll('.smartrr-grp-input');
       var variantDivSub = ui.$form.querySelector('[data-smartrr-choose-sub]')
       var variantDivOtp = ui.$form.querySelector('[data-smartrr-choose-otp]')
-      var variantButtons = ui.$form.querySelectorAll('.variant-input input');
-
+      var variantButtons = ui.$form.querySelectorAll('.original-selector ');
+      console.log('varbtn',variantButtons)
       variantButtons.forEach(function(variantInput) {
         variantInput.addEventListener('change', function() {
-          var variantName = ui.apiGetValue(variantInput);
-          var variant = ui.logic.apiGetVariantByName(variantName);
+          console.log(variantInput)
+          var variantId = ui.apiGetValue(variantInput);
+          var variant = ui.logic.apiGetVariantById(variantId);
           ui.logic.apiChangeVariant(variant.id);
+          console.log('variant',variant )
         });
       });
 
@@ -184,7 +186,7 @@
           }
         });
       });
-      */
+
 
       /* Handle the plan selectors for each group. In this case, it is a <select> */
       var planSelectors = ui.apiQuerySelectorAllDataTag('data-smartrr-selling-plans-select', ui.$form);
