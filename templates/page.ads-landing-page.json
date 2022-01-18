@@ -178,6 +178,7 @@
     },
     "1642533152f2b644e1": {
       "type": "rich-text",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "What People Are Saying",
@@ -201,13 +202,14 @@
         "164253318491014d2a-0": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Blank_Background-01.png",
             "desktop_image_position": "center center",
             "mobile_image_position": "center center",
             "subheading": "⭐️⭐️⭐️⭐️⭐️",
-            "title": "\"I was shocked at how easy it was as in the past sometimes I struggle if my flow is light.\"",
+            "title": "",
             "title_size": 40,
             "heading_h1": false,
-            "text": "<p><em>- Erin<\/em><\/p>",
+            "text": "<p>\"I was shocked at how easy it was as in the past sometimes I struggle if my flow is light.\"<\/p><p><em>- Erin<\/em><\/p>",
             "enlarge_text": true,
             "button_1_link": "shopify:\/\/products\/bundle-save",
             "button_1_label": "Erin Uses: Marlow Lubricant & Tampons",
@@ -222,16 +224,39 @@
         "164253318491014d2a-1": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Blank_Background-01.png",
             "desktop_image_position": "center center",
             "mobile_image_position": "center center",
-            "subheading": "Subheading",
-            "title": "Tell your story",
+            "subheading": "⭐️⭐️⭐️⭐️⭐️",
+            "title": "",
             "title_size": 40,
             "heading_h1": false,
-            "text": "<p>Pair text with an image to tell a story<\/p>",
+            "text": "<p>\"I have vaginismus so firstly just so appreciative of the content you post but secondly 10\/10 tampon experience. So much smoother than I expected!\"<\/p><p>-<em> Neena<\/em><\/p>",
             "enlarge_text": true,
-            "button_1_link": "",
-            "button_1_label": "",
+            "button_1_link": "shopify:\/\/products\/bundle-save",
+            "button_1_label": "Neena Uses: Marlow Lubricant & Tampons",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "center center",
+            "mobile_text_alignment": "center center"
+          }
+        },
+        "8f7d2e8d-7835-4a51-b492-682c7b799e7b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Blank_Background-01.png",
+            "desktop_image_position": "center center",
+            "mobile_image_position": "center center",
+            "subheading": "⭐️⭐️⭐️⭐️⭐️",
+            "title": "",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "<p>\"I didn’t realize that putting a tampon in is usually slightly painful because with the lube it felt like nothing.\"<\/p><p>- <em>Emma<\/em><\/p>",
+            "enlarge_text": true,
+            "button_1_link": "shopify:\/\/products\/bundle-save",
+            "button_1_label": "Emma Uses: Marlow Lubricant & Tampons",
             "button_1_style": "primary",
             "button_2_link": "",
             "button_2_label": "",
@@ -243,12 +268,13 @@
       },
       "block_order": [
         "164253318491014d2a-0",
-        "164253318491014d2a-1"
+        "164253318491014d2a-1",
+        "8f7d2e8d-7835-4a51-b492-682c7b799e7b"
       ],
       "settings": {
         "height": "fixed",
-        "height_desktop": 600,
-        "height_mobile": 500,
+        "height_desktop": 380,
+        "height_mobile": 440,
         "full_width": false,
         "mobile_overlay_under": false,
         "image_overlay_style": "none",
