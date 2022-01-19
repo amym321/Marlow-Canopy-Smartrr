@@ -114,68 +114,6 @@
         "alternate_bg_color": false
       }
     },
-    "164253195616c8c8fd": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "How It Works:",
-        "title_size": 50,
-        "heading_h1": false,
-        "text": "<p>The Marlow lubricant is designed with a valve opening and perfectly sized so you can evenly coat your tampon with one quick, mess-free dip.<\/p>",
-        "enlarge_text": false,
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "text_alignment": "center",
-        "full_width": false,
-        "no_padding": true,
-        "color_bg": "",
-        "alternate_bg_color": false
-      }
-    },
-    "1642532134cf86578e": {
-      "type": "slideshow",
-      "blocks": {
-        "1642532134a89f391c-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/How_It_Works-01.png",
-            "mobile_image": "shopify:\/\/shop_images\/Untitled_design_2.png",
-            "desktop_image_position": "center center",
-            "mobile_image_position": "center center",
-            "subheading": "",
-            "title": "",
-            "title_size": 40,
-            "heading_h1": false,
-            "text": "",
-            "enlarge_text": true,
-            "button_1_link": "",
-            "button_1_label": "",
-            "button_1_style": "primary",
-            "button_2_link": "",
-            "button_2_label": "",
-            "button_2_style": "primary",
-            "text_alignment": "center center",
-            "mobile_text_alignment": "center center"
-          }
-        }
-      },
-      "block_order": [
-        "1642532134a89f391c-0"
-      ],
-      "settings": {
-        "height": "fixed",
-        "height_desktop": 340,
-        "height_mobile": 340,
-        "full_width": false,
-        "mobile_overlay_under": false,
-        "image_overlay_style": "none",
-        "slide_transition": "slide",
-        "slide_navigation": "arrows",
-        "autoplay": true,
-        "autoplay_speed": 7
-      }
-    },
     "1642533152f2b644e1": {
       "type": "rich-text",
       "disabled": true,
@@ -280,6 +218,68 @@
         "image_overlay_style": "none",
         "slide_transition": "slide",
         "slide_navigation": "dots",
+        "autoplay": true,
+        "autoplay_speed": 7
+      }
+    },
+    "164253195616c8c8fd": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "How It Works:",
+        "title_size": 50,
+        "heading_h1": false,
+        "text": "<p>The Marlow lubricant is designed with a valve opening and perfectly sized so you can evenly coat your tampon with one quick, mess-free dip.<\/p>",
+        "enlarge_text": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "text_alignment": "center",
+        "full_width": false,
+        "no_padding": true,
+        "color_bg": "",
+        "alternate_bg_color": false
+      }
+    },
+    "1642532134cf86578e": {
+      "type": "slideshow",
+      "blocks": {
+        "1642532134a89f391c-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/How_It_Works-01.png",
+            "mobile_image": "shopify:\/\/shop_images\/Untitled_design_2.png",
+            "desktop_image_position": "center center",
+            "mobile_image_position": "center center",
+            "subheading": "",
+            "title": "",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": true,
+            "button_1_link": "",
+            "button_1_label": "",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "center center",
+            "mobile_text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "1642532134a89f391c-0"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 340,
+        "height_mobile": 340,
+        "full_width": false,
+        "mobile_overlay_under": false,
+        "image_overlay_style": "none",
+        "slide_transition": "slide",
+        "slide_navigation": "arrows",
         "autoplay": true,
         "autoplay_speed": 7
       }
@@ -444,10 +444,10 @@
     "1642530965c7bb0bb6",
     "16425310553f8417be",
     "1642531751a1f2c857",
-    "164253195616c8c8fd",
-    "1642532134cf86578e",
     "1642533152f2b644e1",
     "1642533184555c117c",
+    "164253195616c8c8fd",
+    "1642532134cf86578e",
     "164253406223e076ea",
     "16425344060a9d867a",
     "1642534546fe2b70cf"
