@@ -248,11 +248,11 @@
 
                       <div class="options-wrapper">
 
-                        <div id="variants-subscribe">
-                          <select class="" id="option-{{ option.name | handle }}">
+                        <div id="variants-subscribe" class="hide" >
+                          <select  id="option-{{ option.name | handle }}">
                             {% for value in option.values %}
                               {% if value contains 'Subscription' %}
-                                <option id="variants-subscribe" class="" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                                <option id="variants-subscribe" class="hide" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
                                   {{ value }}
                                 </option>
                               {% endif %}
