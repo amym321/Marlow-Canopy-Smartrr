@@ -246,29 +246,33 @@
                                for="option-{{ option.name | handle }}">{{ option.name }}</label>
                       {% endif %}
 
-
                       <div class="options-wrapper">
-                        <select id="option-{{ option.name | handle }}">
 
-                          {% for value in option.values %}
-
+                        <div id="variants-subscribe">
+                          <select class="" id="option-{{ option.name | handle }}">
+                            {% for value in option.values %}
                               {% if value contains 'Subscription' %}
-                                <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                                <option id="variants-subscribe" class="" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
                                   {{ value }}
                                 </option>
                               {% endif %}
+                            {% endfor %}
+                          </select>
+                        </div>
 
+                        <div id="variants-otp" class="">
+                          <select id="option-{{ option.name | handle }}">
+                            {% for value in option.values %}
                               {% unless value contains 'Subscription' %}
-                                <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                                <option id="variants-otp" class="" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
                                   {{ value }}
                                 </option>
                               {% endunless %}
+                            {% endfor %}
+                          </select>
+                        </div> 
 
-                          {% endfor %}
-
-                        </select>
                       </div>
-
 
                     </div>
                   {% endfor %}

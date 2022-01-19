@@ -216,13 +216,21 @@
 
       var benefitsDivSub = ui.$form.querySelector('[data-smartrr-choose-sub]');
       var benefitsDivOtp = ui.$form.querySelector('[data-smartrr-choose-otp]');
+      var variantSub = document.getElementById('variants-subscribe');
+      var variantOTP = document.getElementById('variants-otp');
 
       if (currentInfo.planId === "") {
         benefitsDivOtp.classList.remove("hide");
         benefitsDivSub.classList.add("hide");
+        variantSub.classList.add("hide");
+        variantOTP.classList.remove("hide");
+        console.log('c');
       } else {
         benefitsDivOtp.classList.add("hide");
         benefitsDivSub.classList.remove("hide");
+        variantSub.classList.remove("hide");
+        variantOTP.classList.add("hide");
+        console.log('d');
         var benefitsFrequency = ui.$form.querySelector('[data-smartrr-choose-sub] [data-smartrr-benefits-duration]');
 
         var plan = ui.logic.apiGetSellingPlanById(currentInfo.groupId, currentInfo.planId);
