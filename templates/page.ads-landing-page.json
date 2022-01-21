@@ -6,15 +6,58 @@
       "settings": {
       }
     },
+    "16428075057114f3cc": {
+      "type": "slideshow",
+      "blocks": {
+        "1642807505ea46ceb4-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Hero_Banner-02.png",
+            "mobile_image": "shopify:\/\/shop_images\/Hero_Banner-01_10fe520f-cead-4e2e-bf8a-46526831dbd9.png",
+            "desktop_image_position": "center bottom",
+            "mobile_image_position": "center bottom",
+            "subheading": "",
+            "title": "A smoother tampon experience.",
+            "title_size": 46,
+            "heading_h1": false,
+            "text": "<p><em>We started Marlow after we <br\/>realized that we weren't the <br\/>only ones who experienced <br\/>discomfort or pain when <br\/>inserting a tampon.<\/em><\/p>",
+            "enlarge_text": false,
+            "button_1_link": "",
+            "button_1_label": "",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "top right",
+            "mobile_text_alignment": "top right"
+          }
+        }
+      },
+      "block_order": [
+        "1642807505ea46ceb4-0"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 400,
+        "height_mobile": 460,
+        "full_width": true,
+        "mobile_overlay_under": false,
+        "image_overlay_style": "none",
+        "slide_transition": "slide",
+        "slide_navigation": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7
+      }
+    },
     "1642530965c7bb0bb6": {
       "type": "rich-text",
       "settings": {
         "subheading": "",
-        "title": "A smoother tampon experience.",
+        "title": "",
         "title_size": 60,
         "heading_h1": false,
-        "text": "<p>We started Marlow after we realized we weren't the only ones who experienced pain or discomfort when inserting a tampon. <\/p><p><strong>Whether it's:<\/strong><\/p>",
-        "enlarge_text": false,
+        "text": "<p><strong>Whether...<\/strong><\/p>",
+        "enlarge_text": true,
         "button_label": "",
         "button_link": "",
         "button_style": "primary",
@@ -28,19 +71,6 @@
     "16425310553f8417be": {
       "type": "text-columns-with-images",
       "blocks": {
-        "16425310552f2ec1b5-0": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify:\/\/shop_images\/marlow_producticon-65.png",
-            "video": "",
-            "image_width": 150,
-            "title": "",
-            "text": "<p>Your first time using a tampon.<\/p>",
-            "button_label": "",
-            "link": ""
-          }
-        },
         "16425310552f2ec1b5-1": {
           "type": "text_block",
           "settings": {
@@ -49,7 +79,20 @@
             "video": "",
             "image_width": 140,
             "title": "",
-            "text": "<p>You have vaginal dryness or a light flow.<\/p>",
+            "text": "<p>You have a light flow, either at the start and end of your period or throughout.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "16425310552f2ec1b5-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/marlow_producticon-65.png",
+            "video": "",
+            "image_width": 150,
+            "title": "",
+            "text": "<p>It's your first time using a tampon.<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -62,7 +105,7 @@
             "video": "",
             "image_width": 190,
             "title": "",
-            "text": "<p>You have a medical condition that makes using tampons difficult, such as vaginismus, vulvodynia, or PCOS.<\/p>",
+            "text": "<p>You have a medical condition that makes using tampons difficult, such as vaginismus, vulvodynia, vaginal dryness or PCOS.<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -82,8 +125,8 @@
         }
       },
       "block_order": [
-        "16425310552f2ec1b5-0",
         "16425310552f2ec1b5-1",
+        "16425310552f2ec1b5-0",
         "16425310552f2ec1b5-2",
         "94e31d81-e4ee-4def-bc87-f1b41546ab5b"
       ],
@@ -102,9 +145,9 @@
         "title": "",
         "title_size": 40,
         "heading_h1": false,
-        "text": "<p><strong>We believe everyone deserves to have a smoother tampon experience. That's why we created our Marlow tampons & lubricant.<\/strong><\/p>",
+        "text": "<p><strong>We believe everyone deserves to have a smoother tampon experience. That's why we created the first lubricant design to be used with tampons.<\/strong><\/p>",
         "enlarge_text": true,
-        "button_label": "Shop Now",
+        "button_label": "Shop Lubricant & Tampons Now",
         "button_link": "shopify:\/\/products\/bundle-save",
         "button_style": "primary",
         "text_alignment": "center",
@@ -461,6 +504,7 @@
   },
   "order": [
     "main",
+    "16428075057114f3cc",
     "1642530965c7bb0bb6",
     "16425310553f8417be",
     "1642531751a1f2c857",
