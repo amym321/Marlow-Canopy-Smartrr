@@ -247,7 +247,7 @@
         "1642532134a89f391c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/How_It_Works-01.png",
+            "image": "shopify:\/\/shop_images\/How_It_Works_2.png",
             "mobile_image": "shopify:\/\/shop_images\/Untitled_design_2.png",
             "desktop_image_position": "center center",
             "mobile_image_position": "center center",
@@ -275,7 +275,7 @@
         "height": "fixed",
         "height_desktop": 340,
         "height_mobile": 340,
-        "full_width": false,
+        "full_width": true,
         "mobile_overlay_under": false,
         "image_overlay_style": "none",
         "slide_transition": "slide",
