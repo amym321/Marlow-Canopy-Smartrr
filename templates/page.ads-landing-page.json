@@ -247,8 +247,8 @@
         "1642532134a89f391c-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/How_It_Works_2.png",
-            "mobile_image": "shopify:\/\/shop_images\/Untitled_design_2.png",
+            "image": "shopify:\/\/shop_images\/01.png",
+            "mobile_image": "shopify:\/\/shop_images\/How_It_Works_Mobile-02.png",
             "desktop_image_position": "center center",
             "mobile_image_position": "center center",
             "subheading": "",
@@ -278,49 +278,6 @@
         "full_width": true,
         "mobile_overlay_under": false,
         "image_overlay_style": "none",
-        "slide_transition": "slide",
-        "slide_navigation": "arrows",
-        "autoplay": true,
-        "autoplay_speed": 7
-      }
-    },
-    "164253406223e076ea": {
-      "type": "slideshow",
-      "blocks": {
-        "164253406235d15231-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Web_Preview.png",
-            "mobile_image": "shopify:\/\/shop_images\/Web_Preview.png",
-            "desktop_image_position": "center bottom",
-            "mobile_image_position": "right bottom",
-            "subheading": "",
-            "title": "Our Standard",
-            "title_size": 40,
-            "heading_h1": false,
-            "text": "<p>At Marlow, we're designing <br\/>our products with you and <br\/>the planet in mind.<\/p>",
-            "enlarge_text": false,
-            "button_1_link": "shopify:\/\/pages\/our-standards",
-            "button_1_label": "Learn More",
-            "button_1_style": "primary",
-            "button_2_link": "",
-            "button_2_label": "",
-            "button_2_style": "primary",
-            "text_alignment": "top right",
-            "mobile_text_alignment": "top right"
-          }
-        }
-      },
-      "block_order": [
-        "164253406235d15231-0"
-      ],
-      "settings": {
-        "height": "fixed",
-        "height_desktop": 600,
-        "height_mobile": 320,
-        "full_width": true,
-        "mobile_overlay_under": false,
-        "image_overlay_style": "shadow",
         "slide_transition": "slide",
         "slide_navigation": "arrows",
         "autoplay": true,
@@ -395,6 +352,69 @@
         "enable_product_image_zoom": true
       }
     },
+    "1642805791f05680a4": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "Shop Now",
+        "title_size": 40,
+        "heading_h1": false,
+        "text": "",
+        "enlarge_text": false,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "text_alignment": "center",
+        "full_width": false,
+        "no_padding": true,
+        "color_bg": "",
+        "alternate_bg_color": false
+      }
+    },
+    "164253406223e076ea": {
+      "type": "slideshow",
+      "blocks": {
+        "164253406235d15231-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Web_Preview.png",
+            "mobile_image": "shopify:\/\/shop_images\/Blank_Background-01.png",
+            "desktop_image_position": "center bottom",
+            "mobile_image_position": "right bottom",
+            "subheading": "",
+            "title": "Our Standard",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "<p>At Marlow, we're designing <br\/>our products with you and <br\/>the planet in mind.<\/p>",
+            "enlarge_text": false,
+            "button_1_link": "shopify:\/\/pages\/our-standards",
+            "button_1_label": "Learn More",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "top right",
+            "mobile_text_alignment": "top left"
+          }
+        }
+      },
+      "block_order": [
+        "164253406235d15231-0"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 600,
+        "height_mobile": 320,
+        "full_width": true,
+        "mobile_overlay_under": false,
+        "image_overlay_style": "shadow",
+        "slide_transition": "slide",
+        "slide_navigation": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7
+      }
+    },
     "1642534546fe2b70cf": {
       "type": "slideshow",
       "blocks": {
@@ -448,8 +468,9 @@
     "1642533184555c117c",
     "164253195616c8c8fd",
     "1642532134cf86578e",
-    "164253406223e076ea",
     "16425344060a9d867a",
+    "1642805791f05680a4",
+    "164253406223e076ea",
     "1642534546fe2b70cf"
   ]
 }
