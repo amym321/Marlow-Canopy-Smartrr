@@ -379,7 +379,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/Web_Preview.png",
-            "mobile_image": "shopify:\/\/shop_images\/Blank_Background-01.png",
+            "mobile_image": "shopify:\/\/shop_images\/Story_3-02.png",
             "desktop_image_position": "center bottom",
             "mobile_image_position": "right bottom",
             "subheading": "",
@@ -405,10 +405,10 @@
       "settings": {
         "height": "fixed",
         "height_desktop": 600,
-        "height_mobile": 320,
+        "height_mobile": 280,
         "full_width": true,
         "mobile_overlay_under": false,
-        "image_overlay_style": "shadow",
+        "image_overlay_style": "top",
         "slide_transition": "slide",
         "slide_navigation": "arrows",
         "autoplay": true,
@@ -421,8 +421,8 @@
         "1642534545d3937d5f-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/09A9179.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/09A9943.jpg",
+            "image": "shopify:\/\/shop_images\/Story_3-01.png",
+            "mobile_image": "shopify:\/\/shop_images\/Story_3-01.png",
             "desktop_image_position": "right center",
             "mobile_image_position": "right bottom",
             "subheading": "",
@@ -448,7 +448,7 @@
       "settings": {
         "height": "fixed",
         "height_desktop": 720,
-        "height_mobile": 740,
+        "height_mobile": 760,
         "full_width": true,
         "mobile_overlay_under": false,
         "image_overlay_style": "shadow",
