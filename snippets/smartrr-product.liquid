@@ -44,12 +44,12 @@
     value="{{ current_selling_plan_allocation.selling_plan.id | default: '' }}">
   
   <div class="hide" data-smartrr-page-load-variant="{{ current_variant.id }}"></div>
-  <div class="data-smartrr-top-price" data-smartrr-product-id="{{ smartrr_unique_id }}"
+<!--   <div class="data-smartrr-top-price" data-smartrr-product-id="{{ smartrr_unique_id }}"
        data-smartrr-price-style="original-compare" data-smartrr-constant={{ group.id }} class="data-smartrr-top-price">
     <span data-smartrr-compare-price></span>
     <span data-smartrr-regular-price></span>
     <span data-smartrr-subscribe-price></span>{% if product == all_products["bundle-save"]%} / Bundle {% endif %}
-  </div>
+  </div> -->
   {% if visibleGroupsSize > 0 %}
   <fieldset class="smartrr-purchase-options" data-smartrr-purchase-options>
     <div class="smartrr-no-plans-available hide" data-smartrr-no-plans>
