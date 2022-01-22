@@ -837,7 +837,7 @@ if (typeof window.initSmartrr === "undefined") {
               minimumFractionDigits: 2,
             }).format(value / 100).replace('CA', '');
           }
-          return "$" + String(value / 100);
+          return "$" + String(value / 100) + 'CAD';
         }
         return "$INVALID";
       },
