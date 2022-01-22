@@ -216,132 +216,41 @@
                        data-show-in-quickbuy="{{ block.settings.show_in_quickbuy }}" {{ block.shopify_attributes }}>{{ product.description }}</div>
                 {% endif %}
               {% endif %}
-
+              <div class="data-smartrr-top-price" data-smartrr-product-id="{{ smartrr_unique_id }}"
+              data-smartrr-price-style="original-compare" data-smartrr-constant={{ group.id }} class="data-smartrr-top-price">
+              <span data-smartrr-compare-price></span>
+              <span data-smartrr-regular-price></span>
+              <span data-smartrr-subscribe-price></span>{% if product == all_products["bundle-save"]%} / Bundle {% endif %}
+            </div>
             {%- when 'variant_picker' -%}
-              {% if product.variants.size > 1 %}
-                <div class="option-selectors product-detail__gap-lg"
-                     data-box-options="{{ block.settings.prod_clicky_opt_names | escape }}" {{ block.shopify_attributes }}>
-                  {% for option in product.options_with_values %}
-                    <div class="selector-wrapper cf">
-                      {% if block.settings.show_size_chart and option.name == block.settings.size_chart_variant and block.settings.size_chart_page != blank %}
-                        <div class="opposing-items">
-                          <label class="left" for="option-{{ option.name | handle }}">{{ option.name }}</label>
-                          <span class="size-chart-container">
-                            <a href="#size-chart-content" class="size-chart-link">
-                              {{ 'products.product.size_chart' | t }}
-                              {% render 'svg-chevron-right' %}
-                            </a>
-                            <div id="size-chart-content" class="hidden">
-                              <div class="size-chart">
-                                <div class="size-chart__inner rte">
-                                  {{ pages[block.settings.size_chart_page].content }}
-                                </div>
-                              </div>
-                            </div>
-                          </span>
-                        </div>
-                      {% else %}
-                        <label {% if option.name == 'default' %}class="hidden"{% endif %}
-                               for="option-{{ option.name | handle }}">{{ option.name }}</label>
-                      {% endif %}
+              <!-- code added - am. seperate variants depending on One-Time Purchase or Subscription checked -->
+              <label for="option-absorbency">Absorbency</label>
+              <div data-smartrr-choose-sub> 
+              {% for variant in product.variants %}
+                {% if variant.title contains "Subscription" %}
+                <label>
+                  <input type="radio" data-smartrr-variant-input = 'otp' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+                  <div data-smartrr-variant-id="{{ variant.id }}">
+                    {{ variant.title }}
+                  </div>
+                </label>
+                {% endif %}
+              {% endfor %}
+              </div>
 
-                      <!-- code added - am. seperate variants depending on One-Time Purchase or Subscription checked -->
-                      <div class="options-wrapper">
-
-                        {% if product.handle == 'tampon-lubricant' or product.handle == 'the-marlow-tote' or product.handle == 'marlow-gift-card-1' %}
-                          <select id="option-{{ option.name | handle }}">
-                            {% for value in option.values %}
-                              <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
-                                {{ value }}
-                              </option>
-                            {% endfor %}
-                          </select>
-                        {% endif %}
-
-                        <div id="variants-subscribe" class="hide" >
-                          <select  id="option-{{ option.name | handle }}">
-                            {% for value in option.values %}
-                              {% if value contains 'Subscription' %}
-                                <option id="variants-subscribe" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
-                                  {{ value }}
-                                </option>
-                              {% endif %}
-                            {% endfor %}
-                          </select>
-                        </div>
-
-                        <div id="variants-otp" class="hide">
-                          <select id="option-{{ option.name | handle }}">
-                            {% for value in option.values %}
-                              {% unless value contains 'Subscription' %}
-                                <option id="variants-otp"  value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
-                                  {{ value }}
-                                </option>
-                              {% endunless %}
-                            {% endfor %}
-                          </select>
-                        </div> 
-
-                      </div>
-                    </div>
-                  {% endfor %}
-                </div>
-
-              {% else %}
-                {% unless show_single_variant_details == false or product.has_only_default_variant %}
-                  {%- assign opt_idx = '' -%}
-                  {%- capture option_list -%}
-                    {%- for option in product.options -%}
-                      {%- if option != 'Title' -%}
-                        {%- assign opt_idx = 'option' | append: forloop.index -%}
-                        <div class="product-detail__gap-xsm">
-                          {% if block.settings.show_size_chart and option == block.settings.size_chart_variant and block.settings.size_chart_page != blank %}
-                            <div class="opposing-items">
-                              <label class="left" for="option-{{ option | handle }}">{{ option }}</label>
-                              <span class="size-chart-container">
-                                <a href="#size-chart-content" class="size-chart-link">
-                                  {{ 'products.product.size_chart' | t }}
-                                  {% render 'svg-chevron-right' %}
-                                </a>
-                                <div id="size-chart-content" class="hidden">
-                                  <div class="size-chart">
-                                    <div class="size-chart__inner rte">
-                                      {{ pages[block.settings.size_chart_page].content }}
-                                    </div>
-                                  </div>
-                                </div>
-                              </span>
-                            </div>
-                            <div>{{ product.variants.first[opt_idx] }}</div>
-                          {% else %}
-                            <label>{{ option }}:</label> {{ product.variants.first[opt_idx] }}
-                          {% endif %}
-                        </div>
-                      {%- endif -%}
-                    {%- endfor -%}
-                  {%- endcapture -%}
-                  {%- if opt_idx != blank -%}
-                    <div class="selector-wrapper single-option" {{ block.shopify_attributes }}>{{ option_list }}</div>
-                  {%- endif -%}
+              <div data-smartrr-choose-otp class = 'hide'>
+              {% for variant in product.variants %}
+                {% unless variant.title contains "Subscription" %}
+                <label>
+                  <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+                  <div data-smartrr-variant-id="{{ variant.id }}">
+                    {{ variant.title }}
+                  </div>
+                </label>
                 {% endunless %}
-              {% endif %}
-
-              <select name="id" class="original-selector{% if product.variants.size == 1 %} hidden{% endif %}"
-                      aria-label="{{ 'products.product.selector_label' | t | escape }}">
-                {% for variant in product.variants %}
-                  <option value="{{ variant.id }}"
-                          {% if variant == current_variant %} selected="selected"{% endif %}
-                          data-stock="{% if variant.inventory_management == 'shopify' and variant.inventory_quantity <= 0 %}out{% endif %}"
-                          {% if variant.inventory_management == 'shopify' and variant.inventory_quantity > 0 %}
-                            {% if variant.inventory_quantity <= block.settings.stock_warning_limit or block.settings.stock_warning_limit == 0 %}
-                              data-inventory="{{ variant.inventory_quantity }}"
-                            {% endif %}
-                          {% endif %}
-                    {% if variant.weight != blank and variant.weight > 0 %}data-weight="{{ variant.weight | weight_with_unit: variant.weight_unit }}"{% endif %}>
-                    {{- variant.title | escape -}}
-                  </option>
-                {% endfor %}
-              </select>
+              {% endfor %}
+              </div>
+      
 
               {% if product.available and block.settings.stock_warning_show %}
                 {%- if current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity > 0 -%}
@@ -368,25 +277,25 @@
             {% render 'smartrr-product' %}
 
             {% if has_benefits %}
-              <div data-smartrr-choose-otp class="hide">
+              <div data-smartrr-choose-otp-benefit class="hide">
                 <div data-smartrr-onetime-benefits>
                   {% if product == all_products["bundle-save"] %}
                   <div>1 box of tampons, 1 bottle of lubricant</div>
                   {% endif %}
                   {% if product == all_products["marlow-tampons"] %}
-                  <div>1 month supply</div>
+                  <div>1 box of tampons</div>
                   {% endif %}
                   <div data-smartrr-benefits-onetime>Auto-refill deliveries</div>
                   <div data-smartrr-benefits-onetime>Free Shipping</div>
                 </div>
               </div>
-              <div data-smartrr-choose-sub class="hide">
+              <div data-smartrr-choose-sub-benefit class="hide">
                 <div data-smartrr-subscription-benefits>
                   {% if product == all_products["bundle-save"] %}
                   <div>3 boxes of tampons, 3 bottles of lubricant</div>
                   {% endif %}
                   {% if product == all_products["marlow-tampons"] %}
-                  <div>3 month supply</div>
+                  <div>3 boxes of tampons</div>
                   {% endif %}
                   <div data-smartrr-benefits-all data-smartrr-benefits-duration></div>
                   <div data-smartrr-benefits-all>Skip or cancel anytime</div>

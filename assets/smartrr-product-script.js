@@ -249,6 +249,10 @@ if (typeof window.initSmartrr === "undefined") {
 
         groups.forEach(function (group) {
           var groupId = that.apiGetAttribute(group, that.tagList.SELLING_PLAN_GROUP);
+          
+          // We don't want to hide the subscription button even for variants that aren't subscribeable.
+          return;
+          
           if (groupId === "") {
             return;
           }

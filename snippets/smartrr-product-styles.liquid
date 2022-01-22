@@ -10,14 +10,26 @@
   .variant-input-wrap input[type=radio]:checked+label {
     color: #FDF3EB;
     background-color: #302BA3;
-    }
+  }
+  .smartrr-active-vaiant{
+    color: #FDF3EB;
+    background-color: #302BA3;
+    height: 35px;
+    display: inline-flex;
+    padding: 5px;
+    align-items: center;
+  }
+  
+  [data-smartrr-variant-id]{
+    display: inline-flex;
+  }
+
   [data-smartrr-subscription-benefits] {
     font-size: 16px;
     padding-bottom: 18px;
     margin-left: 18px;
    
   }
-  
   [data-smartrr-subscription-benefits] [data-smartrr-benefits-all]:before {
     content: '\2713';
     font-size: 20px;
@@ -61,7 +73,7 @@
   
   .data-smartrr-top-price {
     font-size:22px;
-    padiing-bottom:40px;
+    padding-bottom:40px;
   }
   
   [data-smartrr-selling-plan-select-label-input] ,.smartrr-selling-plan-group-label {
@@ -161,6 +173,11 @@
   [data-smartrr-selling-plan-group-input] {
     position: absolute;
     left: -9999px;
+  }
+  [data-smartrr-variant-input]{
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
   }
   [data-smartrr-selling-plan-group-input] + .smartrr-selling-plan-group-input-display {
     position: relative;

@@ -3338,11 +3338,11 @@ function _get(target, property, receiver) {if (typeof Reflect !== "undefined" &&
       if (serializedForm.indexOf('quantity=') === -1) {
         serializedForm += "&quantity=".concat(quantity);
       }
+      
 
       // Add to cart
       $.post(shopifyAjaxAddURL, serializedForm, function (itemData) {
         theme.createCookie('theme_added_to_cart', 'justnow', 1);
-
         // Update persistent cart summaries
         // enable add button
         $btns.each(function () {
