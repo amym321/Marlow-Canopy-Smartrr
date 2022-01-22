@@ -216,8 +216,8 @@
                        data-show-in-quickbuy="{{ block.settings.show_in_quickbuy }}" {{ block.shopify_attributes }}>{{ product.description }}</div>
                 {% endif %}
               {% endif %}
-              <div class="data-smartrr-top-price" data-smartrr-product-id="{{ smartrr_unique_id }}"
-              data-smartrr-price-style="original-compare" data-smartrr-constant={{ group.id }} class="data-smartrr-top-price">
+              <div class="data-smartrr-top-price" data-smartrr-product-id="{{ product.id }}"
+              data-smartrr-price-style="original-compare" data-smartrr-constant={{ product.id}} class="data-smartrr-top-price">
               <span data-smartrr-compare-price></span>
               <span data-smartrr-regular-price></span>
               <span data-smartrr-subscribe-price></span>{% if product == all_products["bundle-save"]%} / Bundle {% endif %}
