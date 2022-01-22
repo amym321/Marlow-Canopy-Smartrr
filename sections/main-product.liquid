@@ -218,7 +218,6 @@
               {% endif %}
 
             {%- when 'variant_picker' -%}
-              <!-- code added - am. seperate variants depending on One-Time Purchase or Subscription checked -->
               {% if product.variants.size > 1 %}
                 <div class="option-selectors product-detail__gap-lg"
                      data-box-options="{{ block.settings.prod_clicky_opt_names | escape }}" {{ block.shopify_attributes }}>
@@ -246,13 +245,24 @@
                                for="option-{{ option.name | handle }}">{{ option.name }}</label>
                       {% endif %}
 
+                      <!-- code added - am. seperate variants depending on One-Time Purchase or Subscription checked -->
                       <div class="options-wrapper">
+
+                        {% if product.handle == 'tampon-lubricant' or product.handle == 'the-marlow-tote' or product.handle == 'marlow-gift-card-1' %}
+                          <select id="option-{{ option.name | handle }}">
+                            {% for value in option.values %}
+                              <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                                {{ value }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                        {% endif %}
 
                         <div id="variants-subscribe" class="hide" >
                           <select  id="option-{{ option.name | handle }}">
                             {% for value in option.values %}
                               {% if value contains 'Subscription' %}
-                                <option id="variants-subscribe" class="hide" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                                <option id="variants-subscribe" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
                                   {{ value }}
                                 </option>
                               {% endif %}
@@ -260,11 +270,11 @@
                           </select>
                         </div>
 
-                        <div id="variants-otp" class="">
+                        <div id="variants-otp" class="hide">
                           <select id="option-{{ option.name | handle }}">
                             {% for value in option.values %}
                               {% unless value contains 'Subscription' %}
-                                <option id="variants-otp" class="" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                                <option id="variants-otp"  value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
                                   {{ value }}
                                 </option>
                               {% endunless %}
@@ -273,7 +283,6 @@
                         </div> 
 
                       </div>
-
                     </div>
                   {% endfor %}
                 </div>
