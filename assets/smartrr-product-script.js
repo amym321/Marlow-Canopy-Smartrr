@@ -835,7 +835,7 @@ if (typeof window.initSmartrr === "undefined") {
               style: "currency",
               currency: Shopify.currency.active,
               minimumFractionDigits: 2,
-            }).format(value / 100).replace('CA', '');
+            }).format(value / 100);
           }
           return "$" + String(value / 100) ;
         }
