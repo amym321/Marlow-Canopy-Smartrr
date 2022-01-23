@@ -2518,6 +2518,11 @@ function _get(target, property, receiver) {if (typeof Reflect !== "undefined" &&
       $container.find('.sku').toggleClass('sku--no-sku', !variant || !variant.sku);
     };
 
+    // _.updateSmartrrVariant = function (variant, $container) {
+    //   $container.find('.sku .sku__value').html(variant ? variant.sku : '');
+    //   $container.find('.sku').toggleClass('sku--no-sku', !variant || !variant.sku);
+    // };
+
     _.updateBarcode = function (variant, $container) {
       $container.find('.barcode .barcode__value').html(variant ? variant.barcode : '');
       $container.find('.barcode').toggleClass('barcode--no-barcode', !variant || !variant.barcode);
@@ -2639,6 +2644,8 @@ function _get(target, property, receiver) {if (typeof Reflect !== "undefined" &&
               for (var i = 0; i < productData.variants.length; i++) {
                 if (productData.variants[i].id == $(this).val()) {
                   variant = productData.variants[i];
+                  console.log('variant switch ');
+                  console.log('variant switch ' + variant);
                 }
               }
             }
@@ -2646,6 +2653,9 @@ function _get(target, property, receiver) {if (typeof Reflect !== "undefined" &&
 
             // update price
             _.updatePrice(variant, $container);
+
+            // update Smartrr variant
+            _.updateSmartrrVariant(variant, $container);
 
             // update buttons
             _.updateButtons(variant, $container);

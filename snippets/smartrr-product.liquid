@@ -136,7 +136,9 @@
       var grpSelect = ui.apiQuerySelectorAllDataTag('data-smartrr-selling-plan-group-id', ui.$form);
       /* Inform the Logic handler about the variant selected when the page loads. */
       var variantId = ui.apiGetAttribute(ui.apiQuerySelectorDataTag('data-smartrr-page-load-variant', ui.$form), 'data-smartrr-page-load-variant');
-  
+      
+// variantId here is static. its the 1st one loaded
+
       ui.logic.apiSetupVariantAndGroup(variantId, selectedGroup);
   
       var variantSelect = ui.$form.querySelector('.option-selectors .options-wrapper select');
@@ -168,11 +170,20 @@
       var grpSelectInput = ui.$form.querySelectorAll('[data-smartrr-selling-plan-group-input]');
       var variantDivSub = ui.$form.querySelector('[data-smartrr-choose-sub]')
       var variantDivOtp = ui.$form.querySelector('[data-smartrr-choose-otp]')
-      var variantButtons = ui.$form.querySelectorAll('[data-smartrr-variant-input]');                     
+      var variantButtons = ui.$form.querySelectorAll('[data-smartrr-variant-input]');
+      // var variantDropdowns = ui.$form.querySelectorAll('[data-smartrr-variant-input-2]');
+      // var variantDropdowns = ui.$form.querySelectorAll('[variant.id]');
+
       
+
+// console.log('variantButtons' + variantButtons);
+
+// variantId below is dynamic with selection of buttons
+
       variantButtons.forEach(function (variantInput) {
         variantInput.addEventListener('change', function () {
           var variantId = ui.apiGetValue(variantInput);
+          console.log('variantId button ' + variantId);
           var variant = ui.logic.apiGetVariantById(variantId);
           ui.logic.apiChangeVariant(variant.id);
           /* grpSelect.forEach(function (grp) {
@@ -186,6 +197,16 @@
               }
             }
           }); */
+        });
+      });
+
+      // console.log('variantDropdowns' + variantDropdowns);
+      variantDropdowns.forEach(function (variantInput) {
+        variantInput.addEventListener('change', function () {
+          var variantId = ui.apiGetValue(variantInput);
+          console.log('variantId drop ' + variantId);
+          var variant = ui.logic.apiGetVariantById(variantId);
+          ui.logic.apiChangeVariant(variant.id);
         });
       });
       
@@ -278,11 +299,19 @@
       var variant = ui.logic.apiGetVariantById(currentInfo.variantId);
       var variantButtons = ui.$form.querySelectorAll('[data-smartrr-variant-input]')
       function insertUrlParam(key, value) {
+        // console.log('insertUrlParam');
+        // console.log('key = ' + key, 'value = ' + value);
         if (history.pushState) {
-        let searchParams = new URLSearchParams(window.location.search);
-        searchParams.set(key, value);
-        let newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams.toString();
-        window.history.pushState({path: newurl}, '', newurl);
+          // console.log('history.pushState');
+          // console.log('key = ' + key, 'value = ' + value);
+          let searchParams = new URLSearchParams(window.location.search);
+          // console.log(searchParams);
+          searchParams.set(key, value);
+          // console.log(searchParams);
+          let newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams.toString();
+          window.history.pushState({path: newurl}, '', newurl);
+        } else {
+          console.log('no history.pushState');
         }
       } 
       insertUrlParam('variant', currentInfo.variantId)
