@@ -192,6 +192,8 @@
       grpSelectInput.forEach(function(Input) {
         Input.addEventListener('click', function() {
           if (Input.value !== "" && Input.checked == true){
+            document.getElementById("dropdownInitial").classList.add("hide-sub");
+            document.getElementById("dropdownSubsequent").classList.remove("hide-initially");
             variantDivSub.classList.remove("hide");            
             variantDivOtp.classList.add("hide");
             variantDivSub.getElementsByTagName("INPUT")[0].checked = true;
@@ -200,6 +202,8 @@
             ui.logic.apiChangeVariant(variant.id);
           }
           else if (Input.value === "" && Input.checked == true) {
+            document.getElementById("dropdownInitial").classList.add("hide-sub");
+            document.getElementById("dropdownSubsequent").classList.remove("hide-initially");
             variantDivSub.classList.add("hide");              
             variantDivOtp.classList.remove("hide"); 
             variantDivOtp.getElementsByTagName("INPUT")[0].checked = true;
