@@ -232,7 +232,7 @@
                     <div  class="dropbtn">Select Your Choice</div>
                   </div>
                   <div id="dropdownInitial"  class="dropdown-content ">
-                    <div data-smartrr-choose-otp class='dropdown'>
+                    <div data-smartrr-choose-otp class='dropdown-select'>
                       {% for variant in product.variants %}
                         <label id="here" class="input">
                           <input type="radio" value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked" id="ccdd"{% endif %}
@@ -278,7 +278,7 @@
                       <div  class="dropbtn">Select Absorbency</div>
                     </div>
                     <div  id="dropdownInitial" class="dropdown-content ">
-                      <div  class = 'dropdown'>
+                      <div  class = 'dropdown-select'>
                         {% for variant in product.variants %}
                           {% if variant.title contains "Subscription" %}
                             <label id="" class="input-label">
@@ -291,7 +291,7 @@
                     </div>
                     <div id="dropdownSubsequent" class="hide-initially">
                       <div  id="dropdownSub" class="dropdown-content ">
-                        <div data-smartrr-choose-sub class = 'dropdown'>
+                        <div data-smartrr-choose-sub class = 'dropdown-select'>
                           {% for variant in product.variants %}
                             {% if variant.title contains "Subscription" %}
                               <label class="input">
@@ -303,7 +303,7 @@
                         </div>
                       </div>
                       <div  id="dropdownOtp" class="dropdown-content ">
-                        <div data-smartrr-choose-otp class = 'dropdown'>
+                        <div data-smartrr-choose-otp class = 'dropdown-select'>
                           {% for variant in product.variants %}
                             {% unless variant.title contains "Subscription" %}
                               <label class="input">
@@ -647,7 +647,8 @@
     document.getElementById("dropdownSub").classList.toggle("show-sub");
     document.getElementById("dropdownOtp").classList.toggle("show-sub");
   };
-</script>
+
+  </script>
 
 <!--Start Stamped.io Auto Installation-->
 <div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div>
