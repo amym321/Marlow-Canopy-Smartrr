@@ -189,15 +189,6 @@
         });
       });
 
-      variantDropdowns.forEach(function (variantInput) {
-        variantInput.addEventListener('change', function () {
-          var variantId = ui.apiGetValue(variantInput);
-          console.log('variantId drop ' + variantId);
-          var variant = ui.logic.apiGetVariantById(variantId);
-          ui.logic.apiChangeVariant(variant.id);
-        });
-      });
-      
       grpSelectInput.forEach(function(Input) {
         Input.addEventListener('click', function() {
           if (Input.value !== "" && Input.checked == true){
