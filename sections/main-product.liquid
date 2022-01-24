@@ -7,21 +7,6 @@
   assign show_app_blocks_in_quickbuy = false
 -%}
 
-<style>
-[data-smartrr-subscription-benefits] [data-smartrr-benefits-all]:before {
-  content: '\2713';
-  font-size: 20px;
-  color: green;
-  padding-right: 12px;
-}
-[data-smartrr-onetime-benefits] [data-smartrr-benefits-onetime]:before {
-  content: '\00D7';
-  font-size: 20px;
-  color: red;
-  padding-right: 12px;
-}
-</style>
-
 <div class="section container product-container product-container--{{ section.settings.page_width }} {% if is_featured_product %}border-top featured-product-section{% endif %}"
      data-section-type="product-template" data-components="accordion">
 
@@ -154,7 +139,7 @@
               {% endif %}
 
             {%- when 'price' -%}
-  {% comment %}      
+            {% if product.handle == 'tampon-lubricant' or product.handle == 'the-marlow-tote' or product.handle == 'marlow-gift-card-1' %}
               <div id="price"
                    class="product-price product-detail__gap-sm {% if current_variant.compare_at_price > current_variant.price %}on-sale{% endif %}" {{ block.shopify_attributes }}>
                 <span class="current-price theme-money">{% render 'price', price: current_variant.price %}</span>
@@ -164,7 +149,8 @@
 
                 {% render 'unit-price', variant: current_variant %}
               </div>
-  {% endcomment %}
+            {% endif %}
+
           <div class="data-smartrr-top-price" data-smartrr-product-id="{{ product.id }}"
                data-smartrr-price-style="original-compare"  class="data-smartrr-top-price">
             <span data-smartrr-subscribe-price></span>
@@ -371,66 +357,7 @@
                   <div class="selector-wrapper single-option" {{ block.shopify_attributes }}>{{ option_list }}</div>
                 {%- endif -%}
               {% endunless %}
-            {% endif %}
-
-<script>
-function dropdownMenu() {
-  document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
-  document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
-  document.getElementById("dropdownInitial").classList.toggle("show-sub");
-  document.getElementById("dropdownSub").classList.toggle("show-sub");
-  document.getElementById("dropdownOtp").classList.toggle("show-sub");
-};
-
-
-
-
-
-var variantInput = document.querySelectorAll(".var-input");
-console.log('var');
-// var currentInfo = ui.logic.apiGetCurrentCopy();
-
-variantInput.forEach((varinput)=>{
-  console.log('111');
-  console.log(varinput.value);
-  // console.log(currentVar);
-
-
-  // if(varinput.value == currentInfo.variantId){
-  // if(varinput.value == product.selected_variant.id){
-  // console.log('222');
-
-  //   varinput.parentElement.classList.add('active-vaiant')
-  // }
-  // else{
-  // console.log('333');
-
-  //   varinput.parentElement.classList.remove('active-vaiant')
-  // }
-});
-
-
-// variant.id == product.selected_or_first_available_variant.id
-
-
-// dropdownSelected
-// const dropdownInput = ['item1', 'item2', 'item3'];
-// dropdownInput.forEach((input) =>{
-//   console.log(input);
-// });
-
-function dropdownSelected() {
-   document.getElementById("here").classList.add("here55");
-  console.log('gggg');
-  
-  // document.getElementsByClass("active-variant").classList.remove("active-variant");
-  // document.getElementById("dropdownSelected").classList.add("here");
-  //   document.getElementsByClass("here").parentElement.classList.add("active-variant");
-}
-dropdownSelected();
-</script>
-
-      
+            {% endif %}     
 
               {% if product.available and block.settings.stock_warning_show %}
                 {%- if current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity > 0 -%}
@@ -710,6 +637,17 @@ dropdownSelected();
 
   {% render 'structured-data-product', product: product, current_variant: current_variant %}
 </div>
+
+<!-- dropdown menu script for smartrr products -->
+<script>
+  function dropdownMenu() {
+    document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
+    document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
+    document.getElementById("dropdownInitial").classList.toggle("show-sub");
+    document.getElementById("dropdownSub").classList.toggle("show-sub");
+    document.getElementById("dropdownOtp").classList.toggle("show-sub");
+  };
+</script>
 
 <!--Start Stamped.io Auto Installation-->
 <div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div>
