@@ -154,7 +154,7 @@
               {% endif %}
 
             {%- when 'price' -%}
-      {% comment %}
+  {% comment %}      
               <div id="price"
                    class="product-price product-detail__gap-sm {% if current_variant.compare_at_price > current_variant.price %}on-sale{% endif %}" {{ block.shopify_attributes }}>
                 <span class="current-price theme-money">{% render 'price', price: current_variant.price %}</span>
@@ -164,7 +164,7 @@
 
                 {% render 'unit-price', variant: current_variant %}
               </div>
-      {% endcomment %}
+  {% endcomment %}
           <div class="data-smartrr-top-price" data-smartrr-product-id="{{ product.id }}"
                data-smartrr-price-style="original-compare"  class="data-smartrr-top-price">
             <span data-smartrr-subscribe-price></span>
@@ -227,16 +227,65 @@
             {%- when 'variant_picker' -%}
               <!-- code added - am. seperate variants depending on One-Time Purchase or Subscription checked -->
 
-
             {% if product.variants.size > 1 %}
 
+            {% if product.handle == 'tampon-lubricant' or product.handle == 'the-marlow-tote' or product.handle == 'marlow-gift-card-1' %}
+            
+            <div class="variant-select">
+              {% if product.handle == 'marlow-gift-card-1' %}
+                <label>Denomination</label>
+              {% endif %}
+              <div class="dropdown-options dropdown-field">
+                <div onclick="dropdownMenu()" class="drop-button">
+                  <div>
+                    <div class="dropdown-options">
+                      <svg id="dropdownSvgDown" height="25" viewBox="0 0 20 20" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
+                      <svg id="dropdownSvgClose" xmlns="http://www.w3.org/2000/svg" class="svg-close hide-svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </div>
+                    <div  class="dropbtn">Select Your Choice</div>
+                  </div>
+                  <div id="dropdownInitial"  class="dropdown-content ">
+                    <div data-smartrr-choose-otp class='dropdown'>
+                      {% for variant in product.variants %}
+                        <label id="here" class="input">
+                          <input type="radio" value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked" id="ccdd"{% endif %}
+
+                            >
+                          <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
+                        </label>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+              <div class="option-selectors product-detail__gap-lg" data-box-options="{{ block.settings.prod_clicky_opt_names | escape }}" {{ block.shopify_attributes }}>
+                {% for option in product.options_with_values %}
+                  <div class="selector-wrapper cf">
+                    <div class="options-wrapper">
+                      <label {% if option.name == 'default' %}class="hidden"{% endif %}for="option-{{ option.name | handle }}">{{ option.name }}</label>
+                      <select id="option-{{ option.name | handle }}">
+                        {% for value in option.values %}
+                          <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                            {{ value }}
+                          </option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+
+            {% else %}
               <div class="variant-select">
                 <label for="option-absorbency">Absorbency</label>
                 <div class="dropdown-options dropdown-field">
                   <div onclick="dropdownMenu()" class="drop-button">
                     <div>
                       <div class="dropdown-options">
-                        <svg id="dropdownSvgDown" height="35 !important" viewBox="0 0 20 20" width="35 !important" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
+                        <svg id="dropdownSvgDown" height="25" viewBox="0 0 20 20" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
                         <svg id="dropdownSvgClose" xmlns="http://www.w3.org/2000/svg" class="svg-close hide-svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                           <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                       </div>
@@ -246,7 +295,7 @@
                       <div  class = 'dropdown'>
                         {% for variant in product.variants %}
                           {% if variant.title contains "Subscription" %}
-                            <label class="input">
+                            <label id="" class="input-label">
                               <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
                               <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
                             </label>
@@ -283,6 +332,7 @@
                   </div>
                 </div>  
               </div>
+              {% endif %}
 
               {% else %}
               {% unless show_single_variant_details == false or product.has_only_default_variant %}
@@ -324,115 +374,61 @@
             {% endif %}
 
 <script>
-
 function dropdownMenu() {
   document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
   document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
   document.getElementById("dropdownInitial").classList.toggle("show-sub");
   document.getElementById("dropdownSub").classList.toggle("show-sub");
   document.getElementById("dropdownOtp").classList.toggle("show-sub");
+};
+
+
+
+
+
+var variantInput = document.querySelectorAll(".var-input");
+console.log('var');
+// var currentInfo = ui.logic.apiGetCurrentCopy();
+
+variantInput.forEach((varinput)=>{
+  console.log('111');
+  console.log(varinput.value);
+  // console.log(currentVar);
+
+
+  // if(varinput.value == currentInfo.variantId){
+  // if(varinput.value == product.selected_variant.id){
+  // console.log('222');
+
+  //   varinput.parentElement.classList.add('active-vaiant')
+  // }
+  // else{
+  // console.log('333');
+
+  //   varinput.parentElement.classList.remove('active-vaiant')
+  // }
+});
+
+
+// variant.id == product.selected_or_first_available_variant.id
+
+
+// dropdownSelected
+// const dropdownInput = ['item1', 'item2', 'item3'];
+// dropdownInput.forEach((input) =>{
+//   console.log(input);
+// });
+
+function dropdownSelected() {
+   document.getElementById("here").classList.add("here55");
+  console.log('gggg');
+  
+  // document.getElementsByClass("active-variant").classList.remove("active-variant");
+  // document.getElementById("dropdownSelected").classList.add("here");
+  //   document.getElementsByClass("here").parentElement.classList.add("active-variant");
 }
-
-// // Close the dropdown menu if the user clicks outside of it
-// document.getElementById("dropdownMenu").addEventListener('click',  function(event) {
-
-//   this works. however, it may conflict with selecting variant and/or clicking add to cart
-//   window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
+dropdownSelected();
 </script>
-
-<style>
-.variant-select{
-  display: inline-block;  
-  margin: 15px 0 3px;  
-}
-
-.drop-button{
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.dropbtn {
-  background-color: #302ba3;
-  color: white;
-  padding: 14px 16px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px !important;
-  height: 50px;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #302ba3;
-}
-
-.dropdown-options{
-  position: relative;
-}
-.dropdown-field, .dropdown {
-  width: 240px;
-  max-width: 100%;
-}
-/* @media (max-width: 767px){
-  .dropdown-field, .dropdown {
-    width: 100%;
-  }
-} */
-
-.dropdown-options svg {  
-  position: absolute !important;
-  fill: #fff !important;
-  height: 35px !important;
-  width: 35px !important;
-  left: 190px;
-  top: 50%;
-  margin-top: 0.4em;
-  z-index: 1;
-}
-.svg-close {
-  margin-top: 0.5em !important;
-  left: 195px !important;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  border-radius: 5px;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content .input {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.show-sub {
-  display: block;
-  position: inherit;
-}
-.hide-svg, .hide-sub, .hide-initially {
-  display:none;
-}
-
-</style>
 
       
 

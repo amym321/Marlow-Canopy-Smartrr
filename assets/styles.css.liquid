@@ -11865,25 +11865,7 @@ body.tab-used .cc-checkbox__input:focus + .cc-checkbox__label, html.no-js .cc-ch
 /******** custom styling - AM ******** */
 /***************************************/
 
-/* .product-form .selector-wrapper:last-child {
-  margin-bottom: 50px;
-}
-@media (max-width: 767px) {
-  .product-form .selector-wrapper:last-child {
-    margin-bottom: 0;
-  }
-} */
 
-/* .pretty-select,
-select,
-.pretty-select:after,
-select:after,  */
-
-/* .replaced:hover,
-.replaced:checked,
-option,
-option:active,
-option:after, */
 .replaced,
 .replaced:after {
   background-color: {{ site_bg_col }};
@@ -11891,67 +11873,107 @@ option:after, */
   font-family: {{ base_font.family }}, {{ base_font.fallback_families }};
   color: {{ body_text_col }};
   font-size: 16px;
-  /* border-radius: 25px !important; */
-}
-/* .replaced:hover {
-  background-color: #302ba3 !important;
-  background: #302ba3 !important;
-} */
-
-/* .clickybox-replaced,
-.clickybox-replaced:hover,
-.clickybox-replaced:active {
-  background-color: red !important;
-  background: red !important;
-} */
-
+} 
 .pretty-select, .pretty-select:after {
   background-color: #302ba3 !important;
   background: #302ba3 !important;
   color: #fff !important;
-  /* border-radius: 25px; */
 }
-
 .pretty-select svg {
   fill: #fff !important;
 }
 
-/* .pretty-select:active, 
-.pretty-select:after {
-  border-radius: 25px;
-} */
-
-/* .clickyboxes,.clickyboxes:after, .clickyboxes:active,
-ul, ul:after, ul:active,
-.selector-wrapper ul, .selector-wrapper ul:after,
-.options-wrapper ul, .options-wrapper ul:after,
-.clickybox-replaced,.clickybox-replaced:after,.clickybox-replaced:active, 
- option, option:after, option:active,
-select, select:after, select:active,
-.option-container1,.option-container1:after, .option-container1:active,
-.option-container2,.option-container2:after, .option-container2:active,
-.options-wrapper */
-{
-  color: red !important;
-  /* border-radius: 25px ; */
-  border-radius: 0 0 25px 25px !important; /* flat on top */
-  border-color: tomato;
-  /* position:relative;  */
-  top:-50px;
-  /* margin-top: -100px; */
-}
-
-/* .selector-wrapper ul:hover,
-.options-wrapper ul:hover,
-.clickybox-replaced:hover,
- option, option:hover,
-select, select:hover
-{
-  background: #302ba3 !important;
-  background-color: #302ba3 !important;
-} */
 
 /* star rating */
 .cc-rating-stars__svg {
   fill: #d1ce4c;
+}
+
+/* dropdown styling for smartrr products */
+.variant-select{
+  display: inline-block;  
+  margin: 15px 0 3px;  
+}
+
+.drop-button{
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.dropbtn {
+  background-color: #302ba3;
+  color: white;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px !important;
+  height: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #302ba3;
+}
+
+.dropdown-options{
+  position: relative;
+}
+.dropdown-field, .dropdown {
+  width: 240px;
+  max-width: 100%;
+}
+
+.dropdown-options svg {  
+  position: absolute !important;
+  fill: #fff !important;
+  height: 25px !important;
+  width: 25px !important;
+  left: 195px;
+  top: 50%;
+  margin-top: 0.7em;
+  z-index: 1;
+}
+.svg-close {
+  margin-top: 0.8em !important;
+  left: 197px !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content .input,
+.dropdown-content .input-label {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content input {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.active-variant {
+  color: #FDF3EB;
+  background-color: #302BA3 ;
+  height: 40px; 
+  align-items: center;
+}
+
+.show-sub {
+  display: block;
+  position: inherit;
+}
+.hide-svg, .hide-sub, .hide-initially {
+  display:none;
 }
