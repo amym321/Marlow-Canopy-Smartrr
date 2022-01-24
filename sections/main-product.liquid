@@ -246,49 +246,76 @@
               </div> -->
 
   <div class="dropdown-options dropdown-field">
-    <div onclick="myFunction()" class="drop-button">
-      <div class="dropdown-options">
-                 <!-- <svg class="svg-icon" viewBox="0 0 20 20"><path fill="none" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path></svg> -->
-        <svg id="dropdownSvgDown" height="35 !important" viewBox="0 0 20 20" width="35 !important" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
-                  <!-- <svg height="35 !important" viewBox="0 0 20 20" width="35 !important" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12"/></svg> -->
-                  <!-- <svg aria-hidden="true" focusable="false" role="presentation" class="icon feather-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg> -->
-                  <!-- <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                    <path d="M0-.75h24v24H0z" fill="none"/>
-                  </svg> -->
-        <svg id="dropdownSvgClose" xmlns="http://www.w3.org/2000/svg" class="svg-close hide" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-          <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <div onclick="dropdownMenu()" class="drop-button">
 
+    <div>
+
+      <div class="dropdown-options">
+        <svg id="dropdownSvgDown" height="35 !important" viewBox="0 0 20 20" width="35 !important" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
+        <svg id="dropdownSvgClose" xmlns="http://www.w3.org/2000/svg" class="svg-close hide-svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+          <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </div>
       <div  class="dropbtn">Select Absorbency</div>
     </div>
+
     <div data-smartrr-choose-sub class = 'dropdown'>
-      <div onclick="myFunction()" id="myDropdown" class="dropdown-content">
+      <div  id="dropdownSub" class="dropdown-content ">
         {% for variant in product.variants %}
-        {% if variant.title contains "Subscription" %}
-        <!-- <div id="myDropdown2"></div> -->
-          <label class="input">
-            <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
-            <div data-smartrr-variant-id="{{ variant.id }}">
-              {{ variant.title }}</div>
-          </label>
-        {% endif %}
+          {% if variant.title contains "Subscription" %}
+            <label class="input">
+              <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+              <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
+            </label>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
+
+    <div data-smartrr-choose-otp class = 'dropdown'>
+      <div  id="dropdownOtp" class="dropdown-content">
+        {% for variant in product.variants %}
+          {% unless variant.title contains "Subscription" %}
+            <label class="input">
+              <input type="radio" data-smartrr-variant-input = 'otp' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+              <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
+            </label>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+                  <!-- <div data-smartrr-choose-otp class = 'hide'>
+              {% for variant in product.variants %}
+                {% unless variant.title contains "Subscription" %}
+                <label>
+                  <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+                  <div data-smartrr-variant-id="{{ variant.id }}">
+                    {{ variant.title }}
+                  </div>
+                </label>
+                {% endunless %}
+              {% endfor %}
+              </div> -->
   </div>
 
+  </div>
+  
 </div>
 
 <script>
   /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-    document.getElementById("dropdownSvgDown").classList.toggle("hide");
-    document.getElementById("dropdownSvgClose").classList.toggle("hide");
 
+function dropdownMenu() {
+  document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
+  document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
+
+  document.getElementById("dropdownSub").classList.toggle("show-sub");
+
+  document.getElementById("dropdownOtp").classList.toggle("show-sub");
 }
+
+
+
 // document.getElementById("myDropdown").addEventListener("click", function() {
 //     document.getElementById("myDropdown").classList.toggle("show");
 // }
@@ -297,8 +324,8 @@ function myFunction() {
 // document.getElementById("dropdownBtn").addEventListener('click',  function(event) {
 
   //this works. however, it may conflict with selecting variant and/or clicking add to cart
-//   window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
+  // window.onclick = function(event) {
+  // if (!event.target.matches('.dropbtn')) {
 
 //     var dropdowns = document.getElementsByClassName("dropdown-content");
 //     var i;
@@ -395,28 +422,16 @@ function myFunction() {
 .dropdown-content input:hover {background-color: red}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
+.show-sub {
   display: block;
   position: inherit;
 }
-.hide {
+.hide-svg, .hide-sub {
   display:none;
 }
 
 </style>
 
-              <div data-smartrr-choose-otp class = 'hide'>
-              {% for variant in product.variants %}
-                {% unless variant.title contains "Subscription" %}
-                <label>
-                  <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
-                  <div data-smartrr-variant-id="{{ variant.id }}">
-                    {{ variant.title }}
-                  </div>
-                </label>
-                {% endunless %}
-              {% endfor %}
-              </div>
       
 
               {% if product.available and block.settings.stock_warning_show %}
