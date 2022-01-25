@@ -244,17 +244,19 @@
       var benefitsDivSub = ui.$form.querySelector('[data-smartrr-choose-sub-benefit]');
       var benefitsDivOtp = ui.$form.querySelector('[data-smartrr-choose-otp-benefit]');
       
-      if (currentInfo.planId === "") {
-        benefitsDivOtp.classList.remove("hide");
-        benefitsDivSub.classList.add("hide");
-      } else {
-        benefitsDivOtp.classList.add("hide");
-        benefitsDivSub.classList.remove("hide");
-        var benefitsFrequency = ui.$form.querySelector('[data-smartrr-choose-sub-benefit] [data-smartrr-benefits-duration]');
-  
-        var plan = ui.logic.apiGetSellingPlanById(currentInfo.groupId, currentInfo.planId);
-        if (benefitsFrequency && plan) {
-          benefitsFrequency.innerText = plan.name;
+      if (benefitsDivSub && benefitsDivOtp) {
+        if (currentInfo.planId === "") {
+          benefitsDivOtp.classList.remove("hide");
+          benefitsDivSub.classList.add("hide");
+        } else {
+          benefitsDivOtp.classList.add("hide");
+          benefitsDivSub.classList.remove("hide");
+          var benefitsFrequency = ui.$form.querySelector('[data-smartrr-choose-sub-benefit] [data-smartrr-benefits-duration]');
+
+          var plan = ui.logic.apiGetSellingPlanById(currentInfo.groupId, currentInfo.planId);
+          if (benefitsFrequency && plan) {
+            benefitsFrequency.innerText = plan.name;
+          }
         }
       }
     },
