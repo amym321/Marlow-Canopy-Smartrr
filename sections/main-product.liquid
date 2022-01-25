@@ -644,8 +644,8 @@
     document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
     document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
     document.getElementById("dropdownInitial").classList.toggle("show-sub");
-    document.getElementById("dropdownSub").classList.toggle("show-sub");
-    document.getElementById("dropdownOtp").classList.toggle("show-sub");
+    if(document.getElementById("dropdownSub")){ document.getElementById("dropdownSub").classList.toggle("show-sub"); }
+    if(document.getElementById("dropdownOtp")){ document.getElementById("dropdownOtp").classList.toggle("show-sub"); }
   };
 
   </script>
