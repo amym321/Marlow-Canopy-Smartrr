@@ -215,31 +215,7 @@
 
             
               <div class="variant-select">
-                <label for="option-absorbency">Absorbency</label>
-                <div class="dropdown-options dropdown-field">
-                  <div onclick="dropdownMenu()" class="drop-button">
-                    <div>
-                      <div class="dropdown-options">
-                        <svg id="dropdownSvgDown" height="25" viewBox="0 0 20 20" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
-                        <svg id="dropdownSvgClose" xmlns="http://www.w3.org/2000/svg" class="svg-close hide-svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-                          <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                      </div>
-                      <div  class="dropbtn">Select Absorbency</div>
-                    </div>
-                    <div  id="dropdownInitial" class="dropdown-content ">
-                      <div  class = 'dropdown-select'>
-                        {% for variant in product.variants %}
-                          {% if variant.title contains "Subscription" %}
-                            <label id="" class="input-label">
-                              <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
-                              <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
-                            </label>
-                          {% endif %}
-                        {% endfor %}
-                      </div>
-                    </div>
-                    <div id="dropdownSubsequent" class="hide-initially">
-                      <div  id="dropdownSub" class="dropdown-content ">
+                
                         <div data-smartrr-choose-sub class = 'dropdown-select'>
                           {% for variant in product.variants %}
                             {% if variant.title contains "Subscription" %}
@@ -250,8 +226,7 @@
                             {% endif %}
                           {% endfor %}
                         </div>
-                      </div>
-                      <div  id="dropdownOtp" class="dropdown-content ">
+                      
                         <div data-smartrr-choose-otp class = 'dropdown-select'>
                           {% for variant in product.variants %}
                             {% unless variant.title contains "Subscription" %}
@@ -262,11 +237,7 @@
                             {% endunless %}
                           {% endfor %}
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>  
-              </div>
+                      
               
 
               {% if product.available and block.settings.stock_warning_show %}
