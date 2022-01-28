@@ -357,7 +357,7 @@
                   <div class="selector-wrapper single-option" {{ block.shopify_attributes }}>{{ option_list }}</div>
                 {%- endif -%}
               {% endunless %}
-            {% endif %}     
+            {% endif %}
 
               {% if product.available and block.settings.stock_warning_show %}
                 {%- if current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity > 0 -%}
