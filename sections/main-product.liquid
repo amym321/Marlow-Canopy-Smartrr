@@ -213,7 +213,7 @@
             {%- when 'variant_picker' -%}
               <!-- code added - am. seperate variants depending on One-Time Purchase or Subscription checked -->
 
-            {% if product.variants.size > 1 %}
+            
 
             {% if product.handle == 'tampon-lubricant' or product.handle == 'the-marlow-tote' or product.handle == 'marlow-gift-card-1' %}
             
@@ -319,7 +319,8 @@
                 </div>  
               </div>
               {% endif %}
-
+      
+      {% if product.variants.size > 1 %}
               {% else %}
               {% unless show_single_variant_details == false or product.has_only_default_variant %}
                 {%- assign opt_idx = '' -%}
